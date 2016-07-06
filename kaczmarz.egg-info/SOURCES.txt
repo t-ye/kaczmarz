@@ -1,0 +1,6 @@
+setup.py
+kaczmarz.egg-info/PKG-INFO
+kaczmarz.egg-info/SOURCES.txt
+kaczmarz.egg-info/dependency_links.txt
+kaczmarz.egg-info/not-zip-safe
+kaczmarz.egg-info/top_level.txt

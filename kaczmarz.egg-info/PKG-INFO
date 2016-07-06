@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: kaczmarz
+Version: 1
+Summary: UNKNOWN
+Home-page: https://github.com/lightningleaf/kaczmarz
+Author: lightningleaf
+Author-email: lightningleaf0@gmail.com
+License: N/A
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
