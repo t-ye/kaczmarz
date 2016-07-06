@@ -1,4 +1,5 @@
 setup.py
+kaczmarz/__init__.py
 kaczmarz.egg-info/PKG-INFO
 kaczmarz.egg-info/SOURCES.txt
 kaczmarz.egg-info/dependency_links.txt
