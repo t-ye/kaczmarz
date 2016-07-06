@@ -1,2 +1,2 @@
 # kaczmarz
-Simulations and visualizations of the Kaczmarz algorithm on various linear systems
+Simulations and visualizations of the Kaczmarz algorithm on various classifications of linear systems
