@@ -2,16 +2,16 @@ import numpy as np
 from recordclass import recordclass
 
 
-def on(sys, itrs):
+def on(sys, idxs):
 	A, x, b = sys
-	for i in itrs:
+	for i in idxs:
 		row = A[i, :]
 		rej = (row @ x - b[i]) / (row @ row) * row
 		x -= rej
 	return np.copy(x)
 
-def itrs(sys, itrs):
-	for i in itrs:
+def gen(sys, idxs):
+	for i in idxs:
 		row = sys.A[i, :]
 		rej = (row @ sys.x - sys.b[i]) / (row @ row) * row
 		sys.x -= rej
