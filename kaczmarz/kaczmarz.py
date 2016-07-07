@@ -1,3 +1,6 @@
+import numpy as np
+from recordclass import recordclass
+
 def on(sys, itrs):
 	for i in itrs:
 		row = sys.A[i, :]
