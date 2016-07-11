@@ -1,18 +1,16 @@
 import numpy as np
 from recordclass import recordclass
-
+import functools
 
 def on(sys, idxs):
-	A, x, b = sys
+	A,x,b = sys
 	for i in idxs:
-		row = A[i, :]
-		rej = (row @ x - b[i]) / (row @ row) * row
-		x -= rej
-	return np.copy(x)
+		row = A[i,:]
+		x -= (row @ x - b[i]) / (row @ row) * row
 
 def gen(sys, idxs):
+	A,x,b = sys
 	for i in idxs:
-		row = sys.A[i, :]
-		rej = (row @ sys.x - sys.b[i]) / (row @ row) * row
-		sys.x -= rej
-		yield np.copy(sys.x)
+		row = A[i,:]
+		x -= (row @ x - b[i]) / (row @ row) * row
+		yield np.copy(x)
