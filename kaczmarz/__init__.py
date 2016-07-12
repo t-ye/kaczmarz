@@ -1,9 +1,10 @@
 import numpy as np
 
-def on(sys, idxs):
+def on(sys, idxs = None):
+	idxs = 
 	A,x,b = sys
 	for i in idxs:
-		row = A[i,:]
+		row = A[i,:]	
 		x -= (row @ x - b[i]) / (row @ row) * row
 
 def gen(sys, idxs):

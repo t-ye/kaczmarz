@@ -1,5 +1,6 @@
 import random
 import itertools as it
+
 def itr(A):
 	rows = len(A)
 	return (i % rows for i in it.count())
