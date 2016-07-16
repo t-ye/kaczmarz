@@ -1,6 +1,9 @@
 import itertools as it
 
-from kaczmarz import util
+import numpy as np
+import timeit
+import util
+
 from random import randrange
 
 def itr(A):
@@ -17,12 +20,13 @@ def rndu(A):
 			i += 1
 
 def rndw(A):
-	row_norms = np.empty(len(A))
-	for i in range(len(A)):
-		row_norms[i] = sum(n for n in A[i,:])
-	dist = row_norms / sum(row_norms)
-	return util.rnd(dist)
+	return util.rnd((A**2).sum(axis=1))
+def test(A):
+	gen = rndw(A)
 
+setup = '''
+import numpy as np
 A = (np.arange(9) + 1).reshape(3, 3)
-print(A)
-print(rndw(A))
+from __main__ import test
+	'''
+print(min(timeit.Timer('test(A)', setup=setup).repeat(10,10)))
