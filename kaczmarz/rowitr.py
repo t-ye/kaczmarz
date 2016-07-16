@@ -8,7 +8,7 @@ from random import randrange
 
 def itr(A):
 	rows = len(A)
-	return (i % rows for i in it.count())
+	return (i % rows for i in it.count()) # optimizable
 
 def rndu(A):
 	rows = len(A)
@@ -21,12 +21,13 @@ def rndu(A):
 
 def rndw(A):
 	return util.rnd((A**2).sum(axis=1))
-def test(A):
-	gen = rndw(A)
 
-setup = '''
-import numpy as np
-A = (np.arange(9) + 1).reshape(3, 3)
-from __main__ import test
-	'''
-print(min(timeit.Timer('test(A)', setup=setup).repeat(10,10)))
+# def test(A):
+# 	gen = rndw(A)
+
+# setup = '''
+# import numpy as np
+# A = (np.arange(9) + 1).reshape(3, 3)
+# from __main__ import test
+# 	'''
+# print(min(timeit.Timer('test(A)', setup=setup).repeat(10,10)))

@@ -6,11 +6,8 @@ import numpy as np
 import timeit
 
 from bisect import bisect
-# from collections import Counter
-# from itertools import islice
 from math import isclose
 from numpy import cumsum
-# from numpy import var
 
 from random import uniform
 
@@ -42,23 +39,22 @@ def rnd(dist):
 		yield i
 		last,i = i,bisect_nd(dist, i, last, uniform(0, p[-1]))
 
+# def test():
+# 	dist = [.1, .2, .4, .3]
+# 	p = cumsum(dist)
+# 	# P = np.copy(p)
+# 	last = 1
+# 	gen = (bisect_nd(dist, p, last, rand()) for _ in range(1000))
+# 	for _ in gen:
+# 		pass
 
-def test():
-	dist = [.1, .2, .4, .3]
-	p = cumsum(dist)
-	# P = np.copy(p)
-	last = 1
-	gen = (bisect_nd(dist, p, last, rand()) for _ in range(1000))
-	for _ in gen:
-		pass
+# # test()
+# # print('\n(', round(time() - t, 5), ' s)', sep='')
 
-# test()
-# print('\n(', round(time() - t, 5), ' s)', sep='')
-
-setup += '''
-from __main__ import test
-	'''
-print(min(timeit.Timer('test()', setup=setup).repeat(10,5)))
+# setup += '''
+# from __main__ import test
+# 	'''
+# print(min(timeit.Timer('test()', setup=setup).repeat(10,5)))
 
 
-# print('\n(', round(time() - t, 5), ' s)', sep='')
+# # print('\n(', round(time() - t, 5), ' s)', sep='')
