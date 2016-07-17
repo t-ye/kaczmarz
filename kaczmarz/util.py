@@ -14,6 +14,7 @@ def bisect_nd(dist, p, last, div):
 	# pr - sublist of cumulative probability p tha tneeds to be (r)educed to avoid dl
 	# dl - probability at the (l)ast index
 	# pl - cumulative probability at the (l)ast index
+	if last == None:
 	pr = p[last+1:]
 	dl = dist[last]
 	pr -= dl
@@ -33,10 +34,9 @@ def bisect_nd(dist, p, last, div):
 
 def prob_dist_gen(dist):
 	p = cumsum(dist)
-	last,i = None,bisect(p, uniform(0, p[-1]))
 	while 1:
 		yield i
-		last,i = i,bisect_nd(dist, i, last, uniform(0, p[-1]))
+		i = bisect_nd(dist, p, i, uniform(0, p[-1]))
 
 # def test():
 # 	dist = [.1, .2, .4, .3]
