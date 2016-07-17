@@ -11,4 +11,4 @@ def gen(sys, idxs):
 	for i in idxs:
 		row = A[i,:]
 		x -= (row @ x - b[i]) / (row @ row) * row
-		yield np.copy(x)
+		yield x.copy()
