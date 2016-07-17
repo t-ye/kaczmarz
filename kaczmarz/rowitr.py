@@ -22,7 +22,6 @@ def rndu(A):
 			i += 1
 
 def rndw(A):
-
 	return util.prob_dist_gen((A**2).sum(axis=1))
 
 def rnd(A, pcntu = .5):
@@ -31,11 +30,13 @@ def rnd(A, pcntu = .5):
 	elif pcntu == 1:
 		return rndu(A)
 	itr_types = (rndu(A), rndw(A))
-	last,i = None,itr_types[random() < pcntu].__next__()
+	i = itr_types[random() < pcntu].__next__()
 	while 1: 
 			yield i
-			last,i = i,itr_types[random() < pcntu].__next__() # what if diff itr types conflict
+			i = itr_types[random() < pcntu].__next__() # what if diff itr types conflict
 
+A = (np.arange(9) + 1).reshape(3, 3)
+gen = rnd(A)
 # def test(A):
 # 	gen = rndw(A)
 
