@@ -2,11 +2,10 @@
 # print()
 # t = time()
 
-import numpy as np
-import timeit
+# import numpy as np
+# import timeit
 
 from bisect import bisect
-from math import isclose
 from numpy import cumsum
 
 from random import uniform
@@ -32,7 +31,7 @@ def bisect_nd(dist, p, last, div):
 	pr += dl
 	return i
 
-def rnd(dist):
+def prob_dist_gen(dist):
 	p = cumsum(dist)
 	last,i = None,bisect(p, uniform(0, p[-1]))
 	while 1:
