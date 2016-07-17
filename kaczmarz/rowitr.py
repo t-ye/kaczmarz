@@ -2,8 +2,10 @@ import itertools as it
 
 import numpy as np
 import timeit
-import util
 
+from kaczmarz import rowitr
+
+from random import random
 from random import randrange
 
 def itr(A):
@@ -20,7 +22,19 @@ def rndu(A):
 			i += 1
 
 def rndw(A):
-	return util.rnd((A**2).sum(axis=1))
+
+	return util.prob_dist_gen((A**2).sum(axis=1))
+
+def rnd(A, pcntu = .5):
+	if pcntu == 0:
+		return rndw(A)
+	elif pcntu == 1:
+		return rndu(A)
+	itr_types = (rndu(A), rndw(A))
+	last,i = None,itr_types[random() < pcntu].__next__()
+	while 1: 
+			yield i
+			last,i = i,itr_types[random() < pcntu].__next__() # what if diff itr types conflict
 
 # def test(A):
 # 	gen = rndw(A)
@@ -28,6 +42,6 @@ def rndw(A):
 # setup = '''
 # import numpy as np
 # A = (np.arange(9) + 1).reshape(3, 3)
-# from __main__ import test
+# from test
 # 	'''
 # print(min(timeit.Timer('test(A)', setup=setup).repeat(10,10)))
