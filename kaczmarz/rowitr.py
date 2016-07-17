@@ -3,7 +3,7 @@ import itertools as it
 import numpy as np
 import timeit
 
-from kaczmarz import rowitr
+from kaczmarz import util
 
 from random import random
 from random import randrange
