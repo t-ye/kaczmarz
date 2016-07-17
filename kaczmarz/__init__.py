@@ -1,6 +1,4 @@
-import numpy as np
-
-def on(sys, idxs = None):
+def on(sys, idxs):
 	A,x,b = sys
 	for i in idxs:
 		row = A[i,:]	
