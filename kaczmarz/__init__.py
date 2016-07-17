@@ -1,7 +1,6 @@
 import numpy as np
 
 def on(sys, idxs = None):
-	idxs = 
 	A,x,b = sys
 	for i in idxs:
 		row = A[i,:]	
