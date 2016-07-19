@@ -13,6 +13,9 @@ setup.py
 .version
 
 test.py
+test2.py
+
+__init__.py
 
 # Sublime project config files.
 /sublime/
