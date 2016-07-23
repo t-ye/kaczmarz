@@ -19,3 +19,8 @@ __init__.py
 
 # Sublime project config files.
 /sublime/
+
+# For the PyPI README. 
+setup.cfg 
+
+twine
