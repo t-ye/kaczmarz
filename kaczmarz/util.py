@@ -38,6 +38,12 @@ def cumdist_bisect_skip(p, skipi):
 
 	return i
 
+def randrange_skip(stop, skip):
+	i = randrange(stop)
+	if i >= skip:
+		i += 1
+	return i
+
 def relnorm(v1, v2):
 	try:
 		return norm(v1 - v2, axis=1) / norm(v1)
