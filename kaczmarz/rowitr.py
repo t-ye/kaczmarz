@@ -1,6 +1,7 @@
 import itertools as it
 
 from .util import cumdist_bisect_skip
+from .util import randrange_skip
 from bisect import bisect
 from numpy import cumsum
 
@@ -17,9 +18,7 @@ def rndu(A):
 	last,i = None,randrange(rows)
 	while 1:
 		yield i
-		last,i = i,randrange(rows - 1)
-		if i >= last:
-			i += 1
+		i = randrange_skip(rows, i)
 
 def rndw(A):
 	p = cumsum((A**2).sum(axis=1))
@@ -35,15 +34,12 @@ def rnd(A, pcntu = .5):
 	elif pcntu == 1:
 		yield from rndu(A) # these are infinite, so no return needed after
 	p = cumsum((A**2).sum(axis=1))
-	last,i = None,randrange(rows) if random() < pcntu else bisect(p,uniform(0, p[-1]))
+	i = randrange(rows) if random() < pcntu \
+			else bisect(p,uniform(0, p[-1]))
 	while 1:
 		yield i
-		if random() < pcntu :
-			last,i = i,randrange(rows - 1)
-			if i >= last:
-				i += 1
-		else:
-			last,i = i,cumdist_bisect_skip(p, i)
+		i = randrange_skip(rows,i) if random()<pcntu \
+				else cumdist_bisect_skip(p, i)
 
 # def rnd(A, pcntu = .5):
 # 	if pcntu == 0:
