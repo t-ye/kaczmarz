@@ -7,6 +7,7 @@
 
 from bisect import bisect
 from numpy import cumsum
+from numpy.linalg import norm
 
 from random import randrange
 from random import uniform
@@ -37,3 +38,5 @@ def cumdist_bisect_skip(p, skipi):
 
 	return i
 
+def relnorm(v1, v2):
+	return norm(v1 - v2) / norm(v1)
