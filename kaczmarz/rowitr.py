@@ -34,7 +34,7 @@ def rnd(A, pcntu = .5):
 	elif pcntu == 1:
 		yield from rndu(A) # these are infinite, so no return needed after
 	p = cumsum((A**2).sum(axis=1))
-	i = randrange(rows) if random() < pcntu \
+	i = randrange(rows) if random()<pcntu \
 			else bisect(p,uniform(0, p[-1]))
 	while 1:
 		yield i
