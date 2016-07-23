@@ -47,7 +47,7 @@ def rnd(A, pcntu = .5):
 
 # def rnd(A, pcntu = .5):
 # 	if pcntu == 0:
-# 		yield from rndw(A)
+# 		yield from rndw(A)	
 # 	elif pcntu == 1:
 # 		yield from rndu(A) # these are infinite, so no return needed after
 # 	itr_types = (rndu(A), rndw(A))
