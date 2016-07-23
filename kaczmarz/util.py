@@ -39,4 +39,7 @@ def cumdist_bisect_skip(p, skipi):
 	return i
 
 def relnorm(v1, v2):
-	return norm(v1 - v2) / norm(v1)
+	try:
+		return norm(v1 - v2, axis=1) / norm(v1)
+	except ValueError:
+		return norm(v1 - v2) / norm(v1)
